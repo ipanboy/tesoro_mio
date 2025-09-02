@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>untuk anis</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url("tulips.png");
+      font-family: Arial, sans-serif;
+    }
+
+    .envelope {
+      position: relative;
+      width: 500px;
+      height: 400px;
+      background: #ff6b81;
+      overflow: hidden;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.5s;
+    }
+
+    .envelope:hover {
+      transform: scale(1.05);
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ff4757;
+      clip-path: polygon(0 0, 100% 0, 50% 50%);
+      transform-origin: top;
+      transition: transform 1s;
+    }
+
+    .letter {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      height: 300px;
+      background:#e8e0d0;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      transition: bottom 1s ease-in-out, transform 1s ease-in-out, opacity 1s;
+      transform: scale(0.9);
+      opacity: 0;
+      border-radius: 5px;
+      overflow-y: auto;
+    }
+
+    .open .flap {
+      transform: rotateX(180deg);
+    }
+
+    .open .letter {
+      bottom: 0;
+      transform: scale(1);
+      opacity: 1;
+    }
+
+     #buka{
+        text-align: left;
+        padding: 5px;
+        font-family: 'Dancing Script', cursive;
+    }
+    #content{
+        text-align: justify;
+        padding: 5px;
+        font-family: 'Dancing Script', cursive;
+        text-transform: capitalize;
+        text-decoration: underline black 1px;
+        
+    }
+    #tutup{
+        padding: 5px;
+        font-family: 'Dancing Script', cursive;
+        text-align: left;
+    }
+    
+  </style>
+</head>
+<body>
+
+   
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
+    <div class="letter">
+
+        
+      
+      <p id="buka">Dear anis, </p>
+      <p id="content">terima kasih sebab jadi sebahagian dari hidup aku. walaupun cinta aku tak pernah dibalas , tapi aku akan sentiasa doa kan kau dunia akhirat. sebelum kita jadi stranger, aku nak bagitahu yang aku bersyukur kenal dan suka dekat kau. perasaan aku still sama macam kali pertama aku jatuh hati kat kau. aku cair dengan senyuman and gelak ketawa kau, jadi aku taknak lah benda tu hilang dari diri kau. aku teringin nak rasa Bahagia, menangis dan gelak sama sama ngn kau. walaupun keinginan aku tak kesampaian, aku berharap kau Bahagia dengan pilihan kau. baik jahat pun kau, kau masih menjadi someone yang aku adore and sayang. Jangan lupakan aku tau, walaupun kenangan kita kat kopu banyak yg baik dan buruk, tapi setiap kenangan tu berharga gila bagi aku and aku takkan lupakan. kenangan unga, jatuh longkang, bagi secret santa and banyak lagi. Terima kasih sangat sangat sebab pernah datangkan kebahagiaan dekat aku. maybe ni effort and hadiah terakhir aku untuk kau, sorry sebab aku pernah buat kau sakit hati dengan aku. semoga kau sentiasa happy dan semangat belajar untuk kejar cita cita kau. maafkan aku sebab aku pernah pressure kau Waktu spm. kat ipg aku dh takde and kau dah tak perlu risau. tapi aku akan doakan kejayaan kau dari jauh. thank you anis.</p>
+      <p id="tutup">Always <br> irfan.</p>
+
+        
+      </p>
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="bg-music" src="Laufey - Magnolia (Official Audio) [26H76PJWnmA].mp3"></audio>
+
+  <script>
+    const envelope = document.getElementById('envelope');
+    const music = document.getElementById('bg-music');
+
+    envelope.addEventListener('click', () => {
+      envelope.classList.toggle('open');
+
+      // kalau baru buka, mainkan lagu
+      if (envelope.classList.contains('open')) {
+        music.play();
+      }
+    });
+  </script>
+</body>
+</html>
